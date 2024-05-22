@@ -8,13 +8,12 @@ const userSlice = createSlice({
   name: "user",
   initialState: {
     token: checkToken(),
-    userConnexion: !!checkToken(),
+    userConnexion: false,
     error: null,
 
     firstName: "",
     lastName: "",
     userName: "",
-    email: "",
   },
 
   reducers: {
@@ -29,7 +28,6 @@ const userSlice = createSlice({
       state.firstName = "";
       state.lastName = "";
       state.userName = "";
-      state.email = "";
       localStorage.removeItem("token");
     },
 

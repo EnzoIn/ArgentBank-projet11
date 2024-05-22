@@ -1,8 +1,17 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './navBar.css';
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { logout } from "../../redux/reducer/userSlice";
+import "./navBar.css";
 
 const NavBar = () => {
+  const dispatch = useDispatch();
+  const userConnexion = useSelector((state) => state.user.userConnexion);
+
+  const handleLogout = () => {
+    dispatch(logout());
+  };
+
   return (
     <nav className="main-nav">
       <Link to="/Home" className="main-nav-logo">
@@ -13,12 +22,25 @@ const NavBar = () => {
         />
         <h1 className="sr-only">Argent Bank</h1>
       </Link>
-      <div>
-        <Link to="/SignIn" className="main-nav-item">
-          <i className="fa fa-user-circle"></i>
-          Sign In
-        </Link>
-      </div>
+      {userConnexion ? (
+        <div>
+          <Link to="/User" className="main-nav-item">
+            <i className="fa fa-user-circle"></i>
+            userName
+          </Link>
+          <Link to="/" onClick={handleLogout} className="main-nav-item">
+            <i className="fa-solid fa-right-from-bracket"></i>
+            Sign Out
+          </Link>
+        </div>
+      ) : (
+        <div>
+          <Link to="/SignIn" className="main-nav-item">
+            <i className="fa fa-user-circle"></i>
+            Sign In
+          </Link>
+        </div>
+      )}
     </nav>
   );
 };

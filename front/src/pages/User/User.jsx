@@ -11,7 +11,7 @@ const User = () => {
         <button className="edit-button">Edit Name</button>
       </div>
       <h2 className="sr-only">Accounts</h2>
-      {accountData.map((element) => <Account element={element} key={element.title} />)}
+      {accountData.map((element) => <Account element={element} key={element.accountTitle} />)}
     </main>
   );
 };

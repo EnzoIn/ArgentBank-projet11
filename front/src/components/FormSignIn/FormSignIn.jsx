@@ -23,7 +23,6 @@ const FormSignIn = () => {
         }
       );
 
-      console.log(response.data.body.token);
       if (response.status === 200) {
         const token = response.data.body.token;
         if (rememberMe) {
