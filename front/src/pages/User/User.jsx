@@ -1,5 +1,6 @@
 import React from 'react';
 import Account from '../../components/Account/Account';
+import accountData from '../../components/Account/accountData.json';
 import './user.css';
 
 const User = () => {
@@ -10,9 +11,7 @@ const User = () => {
         <button className="edit-button">Edit Name</button>
       </div>
       <h2 className="sr-only">Accounts</h2>
-      <Account />
-      <Account />
-      <Account />
+      {accountData.map((element) => <Account element={element} key={element.title} />)}
     </main>
   );
 };

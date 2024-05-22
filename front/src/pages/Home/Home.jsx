@@ -1,6 +1,6 @@
 import React from "react";
 import Banner from "../../components/Banner/Banner";
-import featuresData from "../../components/Features/features.json";
+import featuresData from "../../components/Features/featuresData.json";
 import Features from "../../components/Features/Features";
 
 const Home = () => {
