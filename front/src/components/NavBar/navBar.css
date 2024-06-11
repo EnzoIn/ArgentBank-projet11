@@ -14,6 +14,10 @@
   color: #42b983;
 }
 
+.main-nav i {
+  margin-right: 5px;
+}
+
 .main-nav-item {
   text-decoration: none;
   margin-right: 0.5rem;

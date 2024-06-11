@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { login } from "../../redux/reducer/userSlice";
+import { login, userError, userProfile } from "../../redux/reducer/userSlice";
 import "./formSignIn.css";
 
 const FormSignIn = () => {
@@ -24,14 +24,16 @@ const FormSignIn = () => {
       );
 
       if (response.status === 200) {
-        const token = response.data.body.token;
+        const { token, firstName, lastName, userName } = response.data.body;
         if (rememberMe) {
           localStorage.setItem("token", token);
         }
-        navigate("/user");
         dispatch(login({ token }));
+        dispatch(userProfile({ firstName, lastName, userName, email }));
+        navigate("/user");
       }
     } catch (error) {
+      dispatch(userError(error.message))
       console.error("Erreur de connexion:", error);
     }
   };

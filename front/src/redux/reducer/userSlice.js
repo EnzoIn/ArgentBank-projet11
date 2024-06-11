@@ -1,19 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const checkToken = () => {
-  return localStorage.getItem("token");
-};
+const storedToken = localStorage.getItem('token');
 
 const userSlice = createSlice({
   name: "user",
   initialState: {
-    token: checkToken(),
-    userConnexion: false,
+    token: storedToken || null,
+    userConnexion: !!storedToken,
     error: null,
 
     firstName: "",
     lastName: "",
     userName: "",
+    email: "",
   },
 
   reducers: {
@@ -36,10 +35,10 @@ const userSlice = createSlice({
     },
 
     userProfile: (state, action) => {
-      state.firstName = action.payload.body.firstName;
-      state.lastName = action.payload.body.lastName;
-      state.userName = action.payload.body.userName;
-      state.email = action.payload.body.email;
+      state.firstName = action.payload.firstName;
+      state.lastName = action.payload.lastName;
+      state.userName = action.payload.userName;
+      state.email = action.payload.email;
     },
 
     updateUsername: (state, action) => {

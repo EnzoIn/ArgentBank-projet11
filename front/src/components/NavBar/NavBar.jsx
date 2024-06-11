@@ -6,7 +6,7 @@ import "./navBar.css";
 
 const NavBar = () => {
   const dispatch = useDispatch();
-  const userConnexion = useSelector((state) => state.user.userConnexion);
+  const { userConnexion, firstName } = useSelector((state) => state.user);
 
   const handleLogout = () => {
     dispatch(logout());
@@ -26,12 +26,13 @@ const NavBar = () => {
         <div>
           <Link to="/User" className="main-nav-item">
             <i className="fa fa-user-circle"></i>
-            userName
+            {firstName}
           </Link>
           <Link to="/" onClick={handleLogout} className="main-nav-item">
-            <i className="fa-solid fa-right-from-bracket"></i>
+            <i class="fa-solid fa-right-from-bracket"></i>
             Sign Out
           </Link>
+          
         </div>
       ) : (
         <div>
