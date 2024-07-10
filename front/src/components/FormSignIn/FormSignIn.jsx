@@ -6,8 +6,8 @@ import { login, userError, userProfile } from "../../redux/reducer/userSlice";
 import "./formSignIn.css";
 
 const FormSignIn = () => {
-  const [email, setEmail] = useState("tony@stark.com");
-  const [password, setPassword] = useState("password123");
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
   const [rememberMe, setRememberMe] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
