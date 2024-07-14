@@ -1,7 +1,7 @@
 import React from "react";
 import FormSignIn from "../../components/FormSignIn/FormSignIn";
 import "./signIn.css";
-import CircleUserIcon from "../../../public/assets/CircleUserIcon";
+import CircleUserIcon from "/public/assets/CircleUserIcon";
 
 const SignIn = () => {
   return (
