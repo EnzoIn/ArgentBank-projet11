@@ -106,7 +106,7 @@ paths:
       tags:
         - Transaction Module
       summary: Get User Transactions
-      description: API to retrieve all transactions of a user
+      description: API to retrieve all transactions of the current month for a user
       produces:
         - application/json
       responses:
